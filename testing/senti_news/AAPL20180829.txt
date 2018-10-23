@@ -1,0 +1,47 @@
+The Morning Download: Information Is Power, Sparking Battle Between Google and Trump
+By Steve Rosenbush
+Aug 29, 2018 8:41 am ET
+8 COMMENTS
+The president accused Google and other websites of suppressing conservative voices.
+The president accused Google and other websites of suppressing conservative voices. PHOTO: KRISZTIAN BOCSI/BLOOMBERG NEWS
+Sign up here for The Morning Download, and get the most important news in business technology emailed to you each weekday morning.
+Subscribe to WSJ Pro Cybersecurity for in-depth coverage on cybersecurity trends, breaches and best practices.
+Good morning, CIOs. It long has been said that information is power. That axiom takes on new meaning today, in the age of information, as the disruptive power of technology unsettles the state and public sector. “President Trump accused Google of elevating critical news stories about his presidency at the expense of friendly conservative voices, signaling potential government action if it didn’t change its alleged practices,” the Journal’s Vivian Salama, Douglas MacMillan and Drew FitzGerald report.
+
+Mr. Trump said companies including Alphabet’s Google, Facebook and Twitter are “treading on very, very troubling territory” and warned: “They better be careful because you can’t do that to people.”
+
+Members of Congress questioned Google and other tech giants earlier this year over allegations that their platforms favored liberal voices over conservative ones, the Journal reported. A Google spokeswoman said its search results aren’t biased toward a particular political ideology and that “we never rank search results to manipulate political sentiment.” Corporations should pay close attention to this battle, because a comfortable sideline isn’t likely to be found.
+
+LATEST FROM CIO JOURNAL
+
+Some of the barriers state CIOs face in providing better online services include agency readiness, budget and security.
+Some of the barriers state CIOs face in providing better online services include agency readiness, budget and security. PHOTO: PHILIPPE HUGUEN/AGENCE FRANCE-PRESSE/GETTY IMAGES
+State CIOs hit limits improving key online services. An analysis of 400 state-government websites providing a range of public services found that 99% failed at least one basic performance measure, according to the Information Technology & Innovation Foundation, a tech and public-policy think tank. State CIOs are often limited when it comes to fixing key performance issues, a result of weak coordination among agencies and a lack of tech guidelines. CIO Journal's Angus Loten has more.
+
+TECHNOLOGY NEWS
+
+Yahoo site in 2011.
+Yahoo site in 2011. PHOTO: ISTOCK
+Yahoo holds on to email scanning. Much of the U.S. tech industry has said it's off limits to scan emails for data to sell to advertisers. Yahoo still sees it as a goldmine, the Journal reports.
+
+Bucking the trend. Yahoo's owner, the Oath unit of Verizon Communications, has been pitching a service to advertisers that analyzes more than 200 million Yahoo Mail inboxes, seaching for clues about what users might buy, the Journal reports. The practice also extends to AOL Mail. Together, they're the only major U.S. email provider that scans user inboxes for marketing purposes.
+
+JPMorgan nabs AI exec from Google. In the ongoing war for top technical talent, JPMorgan Chase & Co. poached Apoorv Saxena, Google's head of product management for cloud-based artificial intelligence, according to a memo obtained by CNBC. He will join the bank Aug. 31 as head of artificial intelligence and machine learning services, and will oversee asset and wealth management AI technology.
+
+Iranian influence operation bigger than previously known. The campaign to sow division in global politics encompasses a sprawling network of anonymous websites and social media accounts in 11 different languages, according to Reuters. An analysis by the news agency found 10 more sites and dozens of social media accounts.
+
+Chinese Tesla rival launches US IPO. Chinese electric-vehicle maker NIO Inc. launched a U.S. stock sale that could raise up to $1.32 billion, moving to tap the public markets before generating any substantial revenue, the Journal reports. The Shanghai-headquartered company is planning to list on the New York Stock Exchange in about two weeks.
+
+Amazon seeks more movies for Prime. Amazon.com has held discussions with executives at Sony's studio division and Viacom's Paramount Pictures about options that could include co-financing movies in exchange for certain online rights, people familiar with the matter tell Bloomberg.
+
+Rivals mum on T-Mobile's planned takeover of Sprint. Few large companies have gone on record to back or oppose the roughly $26 billion merger, which would combine the country's No. 3 and No. 4 carriers, the Journal's Drew FitzGerald writes. Fewer still are using their lobbying prowess to fight the deal behind the scenes.
+
+Autonomous flying, one step at a time. Officials in Tracy, Calif. recently tested a helicopter for a new emergency service that will respond to 911 calls via the air. The hope is that the aircraft eventually will be able to fly itself, according to the New York Times. A number of companies are developing autonomous flight technology, but officials acknowledge that getting there, both culturally and technically, might take a while.
+
+EVERYTHING ELSE YOU NEED TO KNOW
+
+After nearly a decade of growth, new-vehicle sales in the world’s largest auto markets are entering their first sustained slowdown since the global financial crisis. (WSJ)
+
+U.S. and Canadian negotiators began a last-minute sprint to complete a North American Free Trade Agreement rewrite, as pressure built on Canadian Prime Minister Justin Trudeau to cut a deal. (WSJ)
+
+Some top Republican lawmakers are urging Attorney General Jeff Sessions to resist any pressure to quit following criticism from President Trump, and to stay in the job at least through the midterm elections. (WSJ)
