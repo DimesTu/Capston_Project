@@ -34,7 +34,7 @@ trade_fee = 0
 # 0 means one-day raw data, such as Close, Volume, Close - Open and so on
 # 1 means short term, such as Close today vs yesterday, Volume today vs yesterday
 # 2 means long term, such as 5-day or 20-day
-trade_type = 1
+trade_type = 3
 
 # To determine which state is buy
 initial_period = 20
@@ -179,6 +179,11 @@ for i in range(train_end_index, test_end_index+1):
         # Very long term relative data
         obs_matrix = np.column_stack([
             data_train['C/A5']
+        ])
+    elif trade_type == 3:
+        # Adding sentiment index
+        obs_matrix = np.column_stack([
+            data_train['C_Diff'], data_train['C/A5'], data_train['OC_Diff'], data_train['Pola'], data_train['Subj']
         ])
 
     #print(obs_matrix)

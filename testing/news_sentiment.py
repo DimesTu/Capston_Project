@@ -8,8 +8,8 @@ stock_index = "GOOG"
 #stock_index = "FB"
 
 # Set the start and end date of news available. These are strings
-news_start_date = '2018-09-12'
-news_end_date = '2018-10-12'         # Only 1 month max interval
+news_start_date = '2016-07-01'
+news_end_date = '2018-10-12'         # Only 1 month max interval for newsapi, but full archieve for nytimes
 news_current_date = news_start_date
 
 # Parse the string date into datetime object. These are datetime object
