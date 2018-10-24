@@ -17,9 +17,10 @@ news_country = 'us'
 #news_category = 'business'
 news_category = 'technology'
 news_source = 'the-wall-street-journal'
-key_words = 'google inc'
-start_date = '2016-07-01'
-end_date = '2018-10-12'         # Only 1 month max interval
+key_words = 'google'
+#start_date = '2016-07-01'
+start_date = '2018-10-03'
+end_date = '2018-10-12'         # Only 1 month max interval for newsapi, but full archieve for nytimes
 current_date = start_date
 newsapi_ApiKey = '443b379064a7437abceec0b03e215f72'
 nytimes_Apikey = '5e1e5a95697145acaeb0b1c2445d2efd'
@@ -86,6 +87,9 @@ for j in range((end_datetime - start_datetime).days + 1):
     result = json.loads(response)
     #number_of_news = result['response']['meta']['hits']
     number_of_news = len(result['response']['docs'])
+    if number_of_news >= 2 :
+        number_of_news = 2
+
     print(number_of_news)
     # Write the snippet,
     news_file_name = 'senti_news/' + stock_index + '_' + current_date + '.txt'
@@ -135,7 +139,7 @@ for j in range((end_datetime - start_datetime).days + 1):
 
     # To wait 1s as API calling limit
     current_date = next_date
-    time.sleep(1)
+    #time.sleep(1)
     #exit()
 
 
