@@ -19,12 +19,13 @@ state_number = 2
 # Set parameters for HMM
 '''
 covariance type:
-spherical” — each obs uses a single variance value that applies to all features.
-diag” — each obs uses a diagonal covariance matrix.
-full” — each obs uses a full (i.e. unrestricted) covariance matrix.
-tied” — all obs use the same full covariance matrix.
+spherical — each obs uses a single variance value that applies to all features.
+diag — each obs uses a diagonal covariance matrix.
+full — each obs uses a full (i.e. unrestricted) covariance matrix.
+tied — all obs use the same full covariance matrix.
 '''
-cova_type = 'diag'
+#cova_type = 'diag'
+cova_type = 'full'
 iteration_number = 2000
 
 # Set the trade fee
@@ -34,7 +35,7 @@ trade_fee = 0
 # 0 means one-day raw data, such as Close, Volume, Close - Open and so on
 # 1 means short term, such as Close today vs yesterday, Volume today vs yesterday
 # 2 means long term, such as 5-day or 20-day
-trade_type = 3
+combination_type = 3
 
 # To determine which state is buy
 initial_period = 20
@@ -152,6 +153,7 @@ data_test.loc[:, 'Ref'] = 0.0
 #print(test_length)
 
 # Start iteration for each test trading day
+combination_type = 5
 for i in range(train_end_index, test_end_index+1):
     #print('The i now is', i )
     print('The datetime now is', data_processed.loc[i, 'Date'])
@@ -161,31 +163,51 @@ for i in range(train_end_index, test_end_index+1):
     #print(data_train)
 
     # Observation Matrix, each column is a feature
-    if trade_type == 0:
-        # Only 1-day intrinsic data.
-        # This might not be good if one or more features keep same changing tendency
+    # First order intrinsic features combination
+    if combination_type == 0 :
         obs_matrix = np.column_stack([
             data_train['Open'], data_train['Close'], data_train['High'], data_train['Low'], data_train['Volume']
         ])
-    elif trade_type == 1:
-        # Very short term relative data
+    # One second order features
+    elif combination_type == 1 :
+        # Trends
         obs_matrix = np.column_stack([
-            # data_train['Pola']
-            # data_train['C_Diff'], data_train['OC_Diff'], data_train['V_Diff']
-            data_train['C_Diff'], data_train['C/A5'], data_train['OC_Diff']
-
+            data_train['C/A5'], data_train['C/A20']
         ])
-    elif trade_type == 2:
-        # Very long term relative data
+    elif combination_type == 2:
+        # Pressure
         obs_matrix = np.column_stack([
-            data_train['C/A5']
+            data_train['C_Diff'], data_train['OC_Diff']
         ])
-    elif trade_type == 3:
-        # Adding sentiment index
+    elif combination_type == 3 :
+        # Stability
         obs_matrix = np.column_stack([
-            data_train['C_Diff'], data_train['C/A5'], data_train['OC_Diff'], data_train['Pola'], data_train['Subj']
+            data_train['HL_Diff'], data_train['Volume']
         ])
-
+    # Multiple second order feature combination
+    elif combination_type == 4 :
+        obs_matrix = np.column_stack([
+            data_train['C_Diff'],
+            data_train['OC_Diff'],
+            data_train['HL_Diff'],
+            data_train['V/A2'],
+            #data_train['C/A5'],
+        ])
+    # Adding the Sentiment Index
+    elif combination_type == 5 :
+        obs_matrix = np.column_stack([
+            data_train['C_Diff'],
+            data_train['OC_Diff'],
+            data_train['HL_Diff'],
+            data_train['V/A2'],
+            data_train['Pola'],
+            data_train['Subj']
+        ])
+    else :
+        obs_matrix = np.column_stack([
+            data_train['Pola'],
+            data_train['Subj']
+        ])
     #print(obs_matrix)
 
 
@@ -279,31 +301,50 @@ print('data_test is\n', data_test)
 print('data_train is\n', data_train)
 print('hidden states is\n', hidden_states)
 
-
-
-
-# Calculate the performance
-
+# Reference price algorithms
 current_shares = int( (start_cash - trade_fee) / start_price )
 current_cash = (start_cash - trade_fee) % start_price
 ref_total = current_cash + current_shares*end_price
 
+
+# Calculate the return on investment and sharpe ratio
+days = 250
+#volatility = data_test['Close'].std()
+volatility = 0.224 # This number is from the NASDAQ
+roi = (data_test.iloc[-1, -2] / start_cash)-1
+#risk_free_roi = (current_price/start_price)-1
+risk_free_roi = 0.02676 # This number is the U.S. 1 Year Treasury Bill ROI
+sr = (roi - risk_free_roi)/volatility
+
+
+print("The combination type is:", combination_type)
 print("The final asset is: ", data_test.iloc[-1, -2])
-print("The reference is:", ref_total)
+print("The intrinsic price change is:",  ((end_price/start_price)-1) )
+print("The Return on Investment is:", roi)
+print("The volatility is:", volatility)
+print("The Sharpe Ratio is:", sr)
+
+# Calculate the correlation between price and sentiment indexes
+#print("The correlation between Close and C_Diff is:", data_train['Close'].corr(data_train['C_Diff']))
+#print("The correlation between Close and Pola is:", data_train['C_Diff'].corr(data_train['Pola']))
+#print("The correlation between Close and Subj is:", data_train['C_Diff'].corr(data_train['Subj']))
+
 
 # Write to test result csv
 data_test.to_csv(file_name_trade, header=True, index=False, float_format='%.6f')
 #data_test.to_csv(file_name_trade, header=True)
 
 
+ 
+
+
+# Print the performance
 plt.interactive(False)
 
 # Color the states
-fig1 = plt.figure(figsize=(25, 16))
+fig1 = plt.figure(figsize=(16, 9))
 plt.ylabel('Close Price')
 plt.xlabel('Date')
-
-
 
 # To print color as hidden states
 for i in range(state_number):
@@ -329,7 +370,7 @@ print('flag is\n', flag)
 
 
 # Save the figure
-figure_name = 'stock_data_trade_fig/' + stock_index + '_' + str(int(data_test.iloc[-1, -2])) + '_' + str(trade_type) + \
+figure_name = 'stock_data_trade_fig/' + stock_index + '_' + str(int(data_test.iloc[-1, -2])) + '_' + str(combination_type) + \
               '_' + cova_type + '_' + train_start_date + '_' + train_end_date + "_" + test_end_date + '.png'
 fig1.savefig(figure_name)
 plt.show()
@@ -346,3 +387,4 @@ plt.show()
 #plt.plot_date(data_test['Date'], data_test['Ref'], '-', label='Reference Price', lw=1)
 #plt.legend(loc='upper left')
 #plt.show()
+

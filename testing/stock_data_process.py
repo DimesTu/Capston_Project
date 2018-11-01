@@ -66,7 +66,7 @@ data_processed['C_Diff'] = data_processed['Close'] / data_processed['Close'].shi
 data_processed['OC_Diff'] = data_processed['Close'] / data_processed['Open'] -1
 
 # Price trends: High over low
-data_processed['HL_Diff'] = data_processed['Close'] / data_processed['Open'] -1
+data_processed['HL_Diff'] = data_processed['High'] / data_processed['Low'] -1
 
 # Sentiment Trends: Sentiment index today vs yesterday
 #data_processed['Pola2'] = data_processed['Pola'].rolling(2)

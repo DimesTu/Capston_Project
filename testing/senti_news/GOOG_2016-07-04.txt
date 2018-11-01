@@ -2,14 +2,4 @@ Date: 2016-07-04
 Two self-driving car pioneers have distinct views of the role of the person behind the wheel.
 Tesla and Google are among many Silicon Valley companies working on driverless cars and have sharply differing paths; both have had setbacks in process and there is no engineering consensus on best way to approach autonomous driving.
 Tesla and Google Take Different Roads to Self-Driving Car
-None
-None
-Tesla and Google Take Two Roads to Driverless Car
-
-The recent death involving Tesla’s Autopilot feature underscored the technology’s risks. But the advances have gotten ahead of insurers’ ability to factor self-driving systems into their policies.
-Emergence of self-driving auto technology has outpaced insurance industry's ability to adapt, with such cars falling under extant policies; crashes like widely covered fatality involving Tesla Model S vehicle would still be filed traditionally, though questions remain about culpability of software maker; insurers are likely to update policies moving forward. 
-As Self-Driving Cars Hit the Road, Innovation Is Outpacing Insurance
-None
-None
-As Self-Driving Vehicles Hit the Road, Innovation Is Outpacing Insurance
 
